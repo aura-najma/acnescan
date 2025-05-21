@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Medilab Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+<!-- Favicons -->
+<link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+<link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+<!-- Main CSS File -->
+<link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+
+
+  <!-- =======================================================
+  * Template Name: Medilab
+  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">AcneScan</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home<br></a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="classify">Classify</a></li>
+            <li><a href="#departments">Feedback</a></li>
+            <li><a href="#doctors">Articles</a></li>
+            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="cta-btn d-none d-sm-block" href="#appointment">Klasifikasi Sekarang</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+      <img src="static/assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container position-relative">
+
+        <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+          <h2>WELCOME TO ACNESCAN</h2>
+          <p>Solusi Cerdas untuk Mengenali Keparahan Jerawat Anda</p>
+        </div><!-- End Welcome -->
+
+        <div class="content row gy-4">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
+              <h3>Kenapa Memilih AcneScan?</h3>
+              <p>
+                AcneScan memanfaatkan teknologi Deep Learning untuk mengklasifikasikan jerawat Anda ke dalam kategori IGA (Investigator’s Global Assessment) berdasarkan foto wajah Anda.
+              </p>
+              <div class="text-center">
+                <a href="#about" class="more-btn"><span>Klasifikasi Sekarang</span> <i class="bi bi-chevron-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Why Box -->
+
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="d-flex flex-column justify-content-center">
+              <div class="row gy-4">
+
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                    <i class="bi bi-clipboard-data"></i>
+                    <h4>Label Klinis</h4>
+                    <p>Menggunakan skala IGA 0–4 yang umum dipakai oleh dokter kulit.
+                    </p>
+                  </div>
+                </div><!-- End Icon Box -->
+
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
+                    <i class="bi bi-gem"></i>
+                    <h4> Analisis Seketika</h4>
+                    <p>Dapatkan hasil klasifikasi jerawat kurang dari lima menit.
+                    </p>
+                  </div>
+                </div><!-- End Icon Box -->
+
+                <div class="col-xl-4 d-flex align-items-stretch">
+                  <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
+                    <i class="bi bi-inboxes"></i>
+                    <h4>Mudah Digunakan</h4>
+                    <p>Antarmuka yang sederhana dan bisa digunakan oleh siapa saja, kapan saja.
+                    </p>
+                  </div>
+                </div><!-- End Icon Box -->
+
+              </div>
+            </div>
+          </div>
+        </div><!-- End  Content-->
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+
+    <div class="container">
+      <div class="row gy-4 gx-5">
+
+        <div class="col-lg-12 content" data-aos="fade-up" data-aos-delay="100">
+          <h3>Mengenal Skala IGA</h3>
+          <p>
+            Skala IGA (Investigator’s Global Assessment) adalah sistem penilaian standar yang digunakan oleh dokter kulit untuk menentukan tingkat keparahan jerawat. Mulai dari kulit yang bersih (IGA 0) hingga jerawat berat (IGA 4), skala ini membantu memilih jenis perawatan yang paling sesuai.
+          </p>
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead class="table-primary">
+                <tr>
+                  <th>Score</th>
+                  <th>Grade</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>Clear</td>
+                  <td>Normal, clear skin with no evidence of acne vulgaris</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Almost Clear</td>
+                  <td>Rare non-inflammatory lesions with rare non-inflamed papules (resolving, may be hyperpigmented)</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Mild</td>
+                  <td>Some non-inflammatory lesions, few inflammatory lesions (papules/pustules only); no nodulocystic lesions</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Moderate</td>
+                  <td>Multiple non-inflammatory and inflammatory lesions; several to many comedones and papules/pustules, may or may not include one nodulocystic lesion</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Severe</td>
+                  <td>Inflammatory lesions are more apparent; many comedones and papules/pustules; may include nodulocystic lesions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section><!-- /About Section -->
+
+
+      <!-- Stats Section -->
+      <section id="stats" class="stats section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="fa-solid fa-user-doctor"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="88" data-purecounter-duration="1" class="purecounter"></span>
+              <p>persen akurasi</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="fa-regular fa-hospital"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-duration="1" class="purecounter"></span>
+              <p>gambar pelatihan</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="fas fa-flask"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter"></span>
+              <p>pengguna</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="fas fa-award"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
+              <p>menit waktu klasifikasi</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <
+  
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments section">
+
+   <div class="container" data-aos="fade-up">
+
+    <div class="row gy-4 justify-content-between">
+
+      <!-- Kiri: Penjelasan -->
+      <div class="col-lg-6">
+        <h3>Beri Masukan Anda</h3>
+        <p>Masukan dari Anda sangat berarti bagi pengembangan AcneScan. Kami ingin terus memperbaiki layanan agar lebih akurat, cepat, dan bermanfaat untuk semua pengguna.</p>
+        <p>Kritik, saran, atau pengalaman Anda selama menggunakan AcneScan akan kami baca dengan penuh perhatian.</p>
+      </div>
+
+      <!-- Kanan: Form Feedback -->
+      <div class="col-lg-5">
+        <div class="card shadow p-4">
+          <h5 class="text-uppercase fw-bold mb-3">Formulir Feedback</h5>
+          <form action="#" method="post">
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Nama" name="name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="5" placeholder="Tulis feedback Anda di sini..." name="message" required></textarea>
+            </div>
+            <div class="text-end">
+              <button type="submit" class="btn" style="background-color: #1977cc; color: white;">Kirim Feedback</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    </section><!-- /Departments Section -->
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors section">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title text-center">
+      <h2>Artikel Pilihan</h2>
+      <p>Baca konten edukatif seputar jerawat, IGA, dan perawatan kulit yang tepat.</p>
+    </div>
+
+    <div class="row gy-4">
+
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4">
+          <img src="static/assets/img/article-1.jpg" class="card-img-top rounded-top-4" alt="...">
+          <div class="card-body">
+            <span class="badge bg-primary mb-2">IGA</span>
+            <p class="text-muted mb-1"><i class="bi bi-calendar"></i> 15/01/2025 &nbsp; <i class="bi bi-chat-dots"></i> 12 Komentar</p>
+            <h5 class="card-title">Mengenal Skala IGA</h5>
+            <p class="card-text">Pelajari bagaimana sistem klasifikasi jerawat dari IGA 0 hingga IGA 4 digunakan dalam dunia medis.</p>
+            <a href="#" class="text-primary fw-bold">Baca Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4">
+          <img src="static/assets/img/article-2.png" class="card-img-top rounded-top-4" alt="...">
+          <div class="card-body">
+            <span class="badge bg-success mb-2">Perawatan</span>
+            <p class="text-muted mb-1"><i class="bi bi-calendar"></i> 18/01/2025 &nbsp; <i class="bi bi-chat-dots"></i> 8 Komentar</p>
+            <h5 class="card-title">Kapan Harus ke Dokter Kulit?</h5>
+            <p class="card-text">Tidak semua jerawat bisa ditangani sendiri. Simak tanda-tanda kapan kamu perlu ke klinik.</p>
+            <a href="#" class="text-primary fw-bold">Baca Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4">
+          <img src="static/assets/img/article-3.jpg" class="card-img-top rounded-top-4" alt="...">
+          <div class="card-body">
+            <span class="badge bg-info mb-2">Fakta</span>
+            <p class="text-muted mb-1"><i class="bi bi-calendar"></i> 21/01/2025 &nbsp; <i class="bi bi-chat-dots"></i> 15 Komentar</p>
+            <h5 class="card-title">Benarkah Stres Memicu Jerawat?</h5>
+            <p class="card-text">Temukan penjelasan ilmiah tentang hubungan antara stres dan jerawat serta cara mengatasinya.</p>
+            <a href="#" class="text-primary fw-bold">Baca Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </section><!-- /Doctors Section -->
+
+<!-- Faq Section -->
+<section id="faq" class="faq section light-background">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <p>Pertanyaan umum yang sering diajukan seputar cara kerja dan penggunaan AcneScan</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="faq-container">
+
+          <div class="faq-item faq-active">
+            <h3>Bagaimana cara kerja AcneScan?</h3>
+            <div class="faq-content">
+              <p>AcneScan menggunakan teknologi Deep Learning untuk menganalisis foto wajah Anda dan mengklasifikasikan tingkat keparahan jerawat berdasarkan skala IGA (Investigator’s Global Assessment). Prosesnya hanya memerlukan beberapa detik.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Apa itu Skala IGA?</h3>
+            <div class="faq-content">
+              <p>Skala IGA adalah sistem penilaian jerawat yang umum digunakan oleh dokter kulit. Skala ini terdiri dari 5 tingkat: IGA 0 (kulit bersih) hingga IGA 4 (jerawat berat).</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Apakah hasil AcneScan bisa menggantikan diagnosis dokter?</h3>
+            <div class="faq-content">
+              <p>Tidak sepenuhnya. AcneScan bertujuan memberikan gambaran awal tingkat keparahan jerawat. Untuk diagnosis dan perawatan medis yang tepat, Anda tetap disarankan berkonsultasi langsung dengan dokter kulit.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Apakah saya bisa menggunakan AcneScan lebih dari sekali?</h3>
+            <div class="faq-content">
+              <p>Tentu saja. Anda bisa menggunakan AcneScan kapan pun Anda butuh mengecek kondisi jerawat—tanpa biaya dan tanpa batasan jumlah pemakaian.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3>Apakah saya perlu memakai makeup atau skincare saat mengambil foto?</h3>
+            <div class="faq-content">
+              <p>Tidak disarankan. Untuk hasil klasifikasi yang lebih akurat, sebaiknya ambil foto dalam kondisi wajah bersih, tanpa makeup, skincare yang mengilap, atau filter kamera. Pastikan pencahayaan cukup dan wajah terlihat jelas.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+        </div>
+
+      </div><!-- End Faq Column-->
+    </div>
+  </div>
+</section><!-- /Faq Section -->
+
+
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Medilab</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Hic solutasetp</h4>
+          <ul>
+            <li><a href="#">Molestiae accusamus iure</a></li>
+            <li><a href="#">Excepturi dignissimos</a></li>
+            <li><a href="#">Suscipit distinctio</a></li>
+            <li><a href="#">Dilecta</a></li>
+            <li><a href="#">Sit quas consectetur</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nobis illum</h4>
+          <ul>
+            <li><a href="#">Ipsam</a></li>
+            <li><a href="#">Laudantium dolorum</a></li>
+            <li><a href="#">Dinera</a></li>
+            <li><a href="#">Trodelas</a></li>
+            <li><a href="#">Flexo</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Medilab</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+<!-- Main JS File -->
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+
+</body>
+
+</html>
