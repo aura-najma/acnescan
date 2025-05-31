@@ -4,43 +4,32 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Medilab Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-<!-- Favicons -->
-<link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
-<link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <title>Hasil Klasifikasi - AcneScan</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-<!-- Vendor CSS Files -->
-<link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-<link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
-<link href="{{ url_for('static', filename='assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-<link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-<link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&display=swap" rel="stylesheet">
 
-<!-- Main CSS File -->
-<link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
-
-  <!-- =======================================================
-  * Template Name: Medilab
-  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
   <header id="header" class="header sticky-top">
-
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
@@ -54,174 +43,132 @@
           <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
-    </div><!-- End Top Bar -->
+    </div>
 
     <div class="branding d-flex align-items-center">
-
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
+        <a href="{{ url_for('home') }}" class="logo d-flex align-items-center me-auto">
           <h1 class="sitename">AcneScan</h1>
         </a>
-
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="index.html" class="active">Home<br></a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#services">Classify</a></li>
-            <li><a href="index.html#departments">Feedback</a></li>
-            <li><a href="index.html#doctors">Articles</a></li>
-            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-              </ul>
-            </li>
+            <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+            <li><a href="{{ url_for('home') }}#about">About</a></li>
+            <li><a href="{{ url_for('classify') }}">Classify</a></li>
+            <li><a href="{{ url_for('home') }}#departments">Feedback</a></li>
+            <li><a href="{{ url_for('home') }}#doctors">Articles</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
-
       </div>
-
     </div>
-
   </header>
 
   <main class="main">
-  <!-- ======= Hash Result Section ======= -->
-   <section id="result" class="result section py-5">
-  <div class="container" data-aos="fade-up">
+    <section id="result" class="result section py-5">
+      <div class="container" data-aos="fade-up">
 
-    <div class="text-center mb-5">
-      <h2>Hasil Klasifikasi Jerawat Anda</h2>
-      <p>Berikut adalah hasil analisis dari gambar wajah yang Anda unggah.</p>
-    </div>
+        <div class="text-center mb-5">
+          <h2>Hasil Klasifikasi Jerawat Anda</h2>
+          <p>Berikut adalah hasil analisis dari gambar wajah yang Anda unggah.</p>
+        </div>
 
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-        <div class="card p-4 shadow rounded-4 text-center">
-          <h4 class="mb-3 text-secondary">Tingkat Keparahan Jerawat</h4>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="card p-4 shadow rounded-4 text-center">
+              <h4 class="mb-3 text-secondary">Tingkat Keparahan Jerawat</h4>
 
-          <!-- IGA 0 -->
-          <div class="result-block" id="iga-0" style="display: none;">
-            <div class="display-5 fw-bold text-igascan mb-2">IGA 0 – Clear</div>
-            <div class="text-start mt-4">
-              <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
-              <ul>
-                <li>Jaga kebersihan wajah dengan mencuci 2x sehari.</li>
-                <li>Gunakan pelembap ringan dan sunscreen.</li>
-                <li>Pertahankan gaya hidup sehat dan pola makan seimbang.</li>
-              </ul>
-              <div class="alert alert-success">Tidak diperlukan pengobatan khusus.</div>
+              <!-- Semua blok hasil disembunyikan dulu -->
+              <div class="result-block" id="iga-0" style="display: none;">
+                <div class="display-5 fw-bold text-igascan mb-2">IGA 0 – Clear</div>
+                <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
+                <ul>
+                  <li>Jaga kebersihan wajah dengan mencuci 2x sehari.</li>
+                  <li>Gunakan pelembap ringan dan sunscreen.</li>
+                  <li>Pertahankan gaya hidup sehat dan pola makan seimbang.</li>
+                </ul>
+                <div class="alert alert-success">Tidak diperlukan pengobatan khusus.</div>
+              </div>
+
+              <div class="result-block" id="iga-1" style="display: none;">
+                <div class="display-5 fw-bold text-igascan mb-2">IGA 1 – Almost Clear</div>
+                <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
+                <ul>
+                  <li>Gunakan pembersih wajah lembut dan exfoliator ringan seminggu 1–2 kali.</li>
+                  <li>Hindari produk berat atau comedogenic.</li>
+                </ul>
+                <div class="alert alert-success">Tidak perlu konsultasi dokter kecuali gejala memburuk.</div>
+              </div>
+
+              <div class="result-block" id="iga-2" style="display: none;">
+                <div class="display-5 fw-bold text-igascan mb-2">IGA 2 – Mild</div>
+                <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
+                <ul>
+                  <li>Gunakan produk dengan salicylic acid atau benzoyl peroxide dosis rendah.</li>
+                  <li>Hindari memencet jerawat dan produk berat.</li>
+                  <li>Gunakan sunscreen non-komedogenik setiap pagi.</li>
+                </ul>
+                <div class="alert alert-info">Pantau kondisi. Konsultasi bila tidak membaik dalam 4 minggu.</div>
+              </div>
+
+              <div class="result-block" id="iga-3" style="display: none;">
+                <div class="display-5 fw-bold text-igascan mb-2">IGA 3 – Moderate</div>
+                <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
+                <ul>
+                  <li>Gunakan produk acne dengan kandungan aktif secara teratur.</li>
+                  <li>Hindari makeup berat dan bersihkan wajah menyeluruh.</li>
+                  <li>Konsultasi dokter kulit disarankan untuk regimen lebih tepat.</li>
+                </ul>
+                <div class="alert alert-warning">Segera konsultasi jika jerawat nyeri atau meluas.</div>
+              </div>
+
+              <div class="result-block" id="iga-4" style="display: none;">
+                <div class="display-5 fw-bold text-igascan mb-2">IGA 4 – Severe</div>
+                <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
+                <ul>
+                  <li>Jangan lakukan self-treatment tanpa arahan medis.</li>
+                  <li>Segera konsultasi dengan dokter kulit untuk terapi intensif.</li>
+                  <li>Hindari menyentuh atau memencet jerawat cystic.</li>
+                </ul>
+                <div class="alert alert-danger">Penanganan profesional sangat dianjurkan.</div>
+              </div>
+
+              <div class="result-block" id="tidak-terdeteksi" style="display: none;">
+                <div class="display-5 fw-bold text-danger mb-2">Tidak Terdeteksi</div>
+                <h5 class="fw-semibold mb-2 text-danger">Model tidak mendeteksi jerawat</h5>
+                <p>Citra wajah tidak dikenali. Pastikan kualitas gambar baik, wajah terlihat jelas dan tidak buram atau terlalu gelap.</p>
+                <div class="alert alert-warning">Silakan unggah ulang gambar yang lebih optimal.</div>
+              </div>
+
+              <a href="{{ url_for('classify') }}" class="btn btn-outline-primary mt-4">Klasifikasi Ulang</a>
             </div>
           </div>
-
-          <!-- IGA 1 -->
-          <div class="result-block" id="iga-1" style="display: none;">
-            <div class="display-5 fw-bold text-igascan mb-2">IGA 1 – Almost Clear</div>
-            <div class="text-start mt-4">
-              <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
-              <ul>
-                <li>Gunakan pembersih wajah lembut dan exfoliator ringan seminggu 1–2 kali.</li>
-                <li>Hindari penggunaan produk berat atau comedogenic.</li>
-              </ul>
-              <div class="alert alert-success">Tidak perlu konsultasi dokter kecuali gejala memburuk.</div>
-            </div>
-          </div>
-
-          <!-- IGA 2 -->
-          <div class="result-block" id="iga-2" style="display: none;">
-            <div class="display-5 fw-bold text-igascan mb-2">IGA 2 – Mild</div>
-            <div class="text-start mt-4">
-              <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
-              <ul>
-                <li>Cuci wajah 2x sehari dengan pembersih ringan.</li>
-                <li>Gunakan produk dengan salicylic acid atau benzoyl peroxide dosis rendah.</li>
-                <li>Hindari memencet jerawat atau memakai produk berat.</li>
-                <li>Gunakan sunscreen non-komedogenik setiap pagi.</li>
-              </ul>
-              <div class="alert alert-info">Belum perlu ke dokter kulit, kecuali jika tidak membaik dalam 4 minggu.</div>
-            </div>
-          </div>
-
-          <!-- IGA 3 -->
-          <div class="result-block" id="iga-3" style="display: none;">
-            <div class="display-5 fw-bold text-igascan mb-2">IGA 3 – Moderate</div>
-            <div class="text-start mt-4">
-              <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
-              <ul>
-                <li>Gunakan produk acne dengan kandungan aktif secara teratur.</li>
-                <li>Hindari makeup berat dan bersihkan wajah secara menyeluruh.</li>
-                <li>Disarankan konsultasi ke dokter kulit untuk evaluasi menyeluruh.</li>
-              </ul>
-              <div class="alert alert-warning">Segera konsultasi jika jerawat disertai nyeri atau luka dalam.</div>
-            </div>
-          </div>
-
-          <!-- IGA 4 -->
-          <div class="result-block" id="iga-4" style="display: none;">
-            <div class="display-5 fw-bold text-igascan mb-2">IGA 4 – Severe</div>
-            <div class="text-start mt-4">
-              <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
-              <ul>
-                <li>Jangan lakukan self-treatment.</li>
-                <li>Segera konsultasi dengan dokter kulit untuk terapi intensif.</li>
-                <li>Hindari menyentuh atau memencet jerawat.</li>
-              </ul>
-              <div class="alert alert-danger">Konsultasi profesional sangat dianjurkan.</div>
-            </div>
-          </div>
-
-          <a href="classify.html" class="btn btn-outline-igascan mt-4">Klasifikasi Ulang</a>
         </div>
       </div>
-    </div>
+    </section>
+  </main>
 
-  </div>
-</section>
-
-<!-- Script: Tampilkan salah satu hasil secara acak -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const ids = ['iga-0', 'iga-1', 'iga-2', 'iga-3', 'iga-4'];
-    const randomId = ids[Math.floor(Math.random() * ids.length)];
-    const el = document.getElementById(randomId);
-    if (el) el.style.display = 'block';
-  });
-</script>
-
-
-  <!-- ======= End Result Section ======= -->
+  <!-- Script dinamis berdasarkan label -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const label = "{{ label|lower }}";
+      const id = label === 'tidak terdeteksi' ? 'tidak-terdeteksi' : label.replace('iga', 'iga-');
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'block';
+    });
+  </script>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-
-<!-- Main JS File -->
-<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <!-- Vendor JS -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
 </body>
 
