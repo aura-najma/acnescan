@@ -2,13 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import os
 from ultralytics import YOLO
+import cv2
 
 # Inisialisasi Flask
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-# Validasi ekstensi
+# Validasi ekstensi file
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -16,6 +17,23 @@ def allowed_file(filename):
 # Load model YOLO
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model', 'best.pt')
 model = YOLO(MODEL_PATH)
+
+# Fungsi untuk deteksi wajah
+def detect_face(image_path):
+    # Load model deteksi wajah
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+    # Load gambar dan konversi ke grayscale
+    img = cv2.imread(image_path)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Deteksi wajah
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+
+    # Jika tidak ada wajah yang terdeteksi
+    if len(faces) == 0:
+        return False  # Gambar tidak valid untuk analisis jerawat
+    return True  # Wajah terdeteksi
 
 @app.route('/')
 def home():
@@ -59,13 +77,18 @@ def classify():
             predicted_label = "tidak terdeteksi"
             print("[DEBUG] Tidak ada prediksi terdeteksi.")
 
-        # 6. Redirect ke halaman hasil
+        # 6. Jika klasifikasi adalah IGA0, lakukan deteksi wajah
+        if predicted_label == "iga0":  # Jika IGA0, cek ada wajah atau tidak
+            print("[DEBUG] Prediksi adalah IGA0, memeriksa wajah...")
+            if not detect_face(filepath):  # Jika tidak ada wajah terdeteksi
+                print("[DEBUG] Tidak ada wajah yang terdeteksi.")
+                return 'Tidak ada wajah terdeteksi pada gambar. Pastikan gambar mengandung wajah untuk analisis jerawat.'
+
+        # 7. Redirect ke halaman hasil
         return redirect(url_for('result', image=filename, label=predicted_label))
 
     # Kalau GET, tampilkan halaman form upload
     return render_template('classify.html')
-
-
 
 @app.route('/result')
 def result():
