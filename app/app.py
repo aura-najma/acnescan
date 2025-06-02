@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
-import os
+import os, time
 from ultralytics import YOLO
 import cv2
 
@@ -15,10 +15,29 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# Fungsi untuk memuat model dengan path dinamis dan mengukur waktu loading
+# def load_model_with_time(model_folder):
+#   model_path = os.path.join(os.path.dirname(__file__), 'model', model_folder, 'best.pt')
+#   start_time = time.time()  # Catat waktu mulai loading
+#   model = YOLO(model_path)  # Muat model
+#   end_time = time.time()  # Catat waktu selesai loading
+#   load_time = end_time - start_time  # Hitung waktu yang dibutuhkan
+#  print(f"[DEBUG] Waktu loading model {model_path}: {load_time:.4f} detik")
+#   return model, load_time
+
+# Inisialisasi dictionary untuk menyimpan waktu loading model
+# model_loading_times = {}
+
+# Daftar folder model yang ingin diload
+# models_folders = ['Large_384', 'Medium_384', 'Nano_512', 'Nano_384', 'Small_224', 'XL_512']
+
+# Loop untuk memuat setiap model dan menyimpan waktu loadingnya
+# for folder in models_folders:
+#    model, load_time = load_model_with_time(folder)
+#    model_loading_times[folder] = load_time
 # Load model YOLO
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model', 'best.pt')
 model = YOLO(MODEL_PATH)
-
 # Fungsi untuk deteksi wajah
 def detect_face(image_path):
     # Load model deteksi wajah
@@ -93,13 +112,15 @@ def classify():
             print("[DEBUG] Prediksi adalah IGA0, memeriksa wajah...")
             if not detect_face(filepath):  # Jika tidak ada wajah terdeteksi
                 print("[DEBUG] Tidak ada wajah yang terdeteksi.")
-                return 'Tidak ada wajah terdeteksi pada gambar. Pastikan gambar mengandung wajah untuk analisis jerawat.'
-
+                # Kirimkan status error ke template untuk memunculkan pop-up
+                return render_template('classify.html', error_message="Tidak ada wajah terdeteksi. Pastikan gambar mengandung wajah untuk analisis jerawat.")
+        
         # 7. Redirect ke halaman hasil
         return redirect(url_for('result', image=filename, label=predicted_label))
 
     # Kalau GET, tampilkan halaman form upload
     return render_template('classify.html')
+
 @app.route('/terms-accepted')
 def terms_accepted():
     session['terms_accepted'] = True  # Tandai bahwa pengguna telah setuju

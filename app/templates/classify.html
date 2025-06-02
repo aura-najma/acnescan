@@ -106,6 +106,28 @@
         </div>
       </div>
     </section>
+    <!-- Modal untuk error (jika tidak ada wajah terdeteksi) -->
+<!-- Modal untuk error (jika tidak ada wajah terdeteksi) -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% if error_message %}
+          <p>{{ error_message }}</p>
+        {% else %}
+          <p>Gagal memproses gambar. Silakan coba lagi.</p>
+        {% endif %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
   </main>
 
   <!-- Scroll Top -->
@@ -126,5 +148,15 @@
 
   <!-- Main JS File -->
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <!-- Script untuk menampilkan modal jika ada error -->
+<script>
+  // Pastikan modal muncul ketika halaman dimuat jika ada error_message
+  document.addEventListener('DOMContentLoaded', function() {
+    {% if error_message %}
+      var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+      errorModal.show();
+    {% endif %}
+  });
+</script>
 </body>
 </html>
