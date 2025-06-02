@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
 import os
 from ultralytics import YOLO
@@ -8,6 +8,7 @@ import cv2
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+app.secret_key = 't0pS3cr3tK3y@AcneScan2025!'
 
 # Validasi ekstensi file
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -39,8 +40,18 @@ def detect_face(image_path):
 def home():
     return render_template('index.html')
 
+@app.route('/sign-up')
+def sign_up():
+    
+    return render_template('register.html')  # Render the sign-up page
+
+@app.route('/sign-in')
+def sign_in():
+    return render_template('login.html')
 @app.route('/classify', methods=['GET', 'POST'])
 def classify():
+    if 'terms_accepted' not in session or not session['terms_accepted']:
+        return redirect(url_for('home'))  # Jika belum setuju, kembalikan ke halaman home
     if request.method == 'POST':
         # 1. Ambil file dari form
         file = request.files.get('image')
@@ -89,6 +100,10 @@ def classify():
 
     # Kalau GET, tampilkan halaman form upload
     return render_template('classify.html')
+@app.route('/terms-accepted')
+def terms_accepted():
+    session['terms_accepted'] = True  # Tandai bahwa pengguna telah setuju
+    return redirect(url_for('classify'))  # Redirect ke halaman classify
 
 @app.route('/result')
 def result():
