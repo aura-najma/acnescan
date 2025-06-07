@@ -34,7 +34,6 @@
         <div class="contact-info d-flex align-items-center">
           <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">acnescan@gmai.com</a></i>
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+628XXXXXXXX</span></i>
-          </i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
@@ -72,9 +71,15 @@
           <p>Gunakan fitur ini untuk mengetahui tingkat keparahan jerawat Anda berdasarkan Skala IGA.</p>
         </div>
 
+        <!-- Buttons to select upload or camera -->
+        <div class="text-center mb-4">
+          <button class="btn btn-outline-primary me-2" onclick="showUpload()">Upload Gambar</button>
+          <button class="btn btn-outline-success" onclick="showCamera()">Gunakan Kamera</button>
+        </div>
+
         <div class="row justify-content-center align-items-start gy-5">
-          <!-- Form Upload -->
-          <div class="col-lg-6">
+          <!-- ===== Upload Section ===== -->
+          <div class="col-lg-6" id="upload-section" style="display: none;"> <!-- Hidden by default -->
             <div class="card p-4 shadow-sm border-0 rounded-4">
               <h5 class="mb-3 fw-bold">Unggah Citra Wajah</h5>
               <form action="{{ url_for('classify') }}" method="post" enctype="multipart/form-data">
@@ -83,16 +88,40 @@
                   <input class="form-control" type="file" id="imageUpload" name="image" accept=".jpg, .jpeg, .png" required>
                 </div>
                 <div class="text-end">
-                  <button type="submit" class="btn" style="background-color: #1977cc; color: white;">Klasifikasikan Sekarang</button>
+                  <button type="submit" class="btn" style="background-color: #1977cc; color: white;">
+                    Klasifikasikan Sekarang
+                  </button>
                 </div>
               </form>
             </div>
           </div>
 
-          <!-- Panduan dan Contoh -->
+          <!-- ===== Kamera Section ===== -->
+          <div class="col-lg-6" id="camera-section" style="display: none;"> <!-- Hidden by default -->
+            <div class="card p-4 shadow-sm border-0 rounded-4">
+              <h5 class="mb-3 fw-bold">Ambil Foto dari Kamera</h5>
+              <form action="{{ url_for('classify') }}" method="post" enctype="multipart/form-data">
+                <!-- Camera input will submit base64 data -->
+                <input type="hidden" name="image" id="imageDataInput" />
+                <video id="camera" autoplay playsinline width="100%" class="rounded border mb-2"></video>
+                <img id="preview-photo" class="img-fluid rounded border mb-2" style="display: none;" alt="Hasil Foto">
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div class="d-flex justify-content-end gap-2 mb-3">
+                  <button type="button" class="btn btn-outline-primary" onclick="startCamera()">Aktifkan Kamera</button>
+                  <button type="button" class="btn btn-primary" onclick="takePhoto()">Ambil Foto</button>
+                  <button type="button" class="btn btn-warning" onclick="retakePhoto()">Ulangi Foto</button>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Upload Gambar dari Kamera</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- ===== Panduan & Contoh ===== -->
           <div class="col-lg-6">
             <div class="card p-4 shadow-sm border-0 rounded-4 bg-light">
-              <h5 class="mb-3 fw-bold"><i class="bi bi-question-circle-fill me-2"></i>Panduan Pengguna</h5>
+              <h5 class="mb-3 fw-bold">
+                <i class="bi bi-question-circle-fill me-2"></i>Panduan Pengguna
+              </h5>
               <ul class="mb-4">
                 <li>Unggah citra wajah dengan format JPG atau PNG.</li>
                 <li>Pastikan wajah terlihat jelas, tidak blur atau terhalang.</li>
@@ -106,28 +135,8 @@
         </div>
       </div>
     </section>
-    <!-- Modal untuk error (jika tidak ada wajah terdeteksi) -->
-<!-- Modal untuk error (jika tidak ada wajah terdeteksi) -->
-<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="errorModalLabel">Error</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        {% if error_message %}
-          <p>{{ error_message }}</p>
-        {% else %}
-          <p>Gagal memproses gambar. Silakan coba lagi.</p>
-        {% endif %}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
   </main>
 
   <!-- Scroll Top -->
@@ -148,15 +157,8 @@
 
   <!-- Main JS File -->
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-  <!-- Script untuk menampilkan modal jika ada error -->
-<script>
-  // Pastikan modal muncul ketika halaman dimuat jika ada error_message
-  document.addEventListener('DOMContentLoaded', function() {
-    {% if error_message %}
-      var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
-      errorModal.show();
-    {% endif %}
-  });
-</script>
+
+
+
 </body>
 </html>

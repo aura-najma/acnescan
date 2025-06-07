@@ -106,7 +106,7 @@
                 AcneScan memanfaatkan teknologi Deep Learning untuk mengklasifikasikan jerawat Anda ke dalam kategori IGA (Investigator’s Global Assessment) berdasarkan foto wajah Anda.
               </p>
               <div class="text-center">
-<a href="/classify" class="more-btn" id="classifyBtn"><span>Klasifikasi Sekarang</span> <i class="bi bi-chevron-right"></i></a>
+                <a href="/classify" class="more-btn"><span>Klasifikasi Sekarang</span> <i class="bi bi-chevron-right"></i></a>
               </div>
             </div>
           </div><!-- End Why Box -->
@@ -416,43 +416,6 @@
   </div>
 </section><!-- /Faq Section -->
 
-<!-- Modal TNC -->
-<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="termsModalLabel">Terms of Service & Privacy Policy</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <h5>Terms of Service:</h5>
-        <p><strong>Data Collection:</strong> Data yang Anda unggah, termasuk gambar kulit Anda, digunakan untuk meningkatkan algoritma machine learning dan layanan AcneScan.</p>
-        <p><strong>Acceptable Use:</strong> Anda setuju untuk tidak mengunggah konten ilegal, berbahaya, atau tidak pantas saat menggunakan platform AcneScan.</p>
-        <p><strong>Privacy:</strong> Data Anda akan diproses sesuai dengan kebijakan privasi AcneScan. Kami tidak akan membagikan data pribadi Anda tanpa persetujuan Anda.</p>
-        <p><strong>Limitations of Liability:</strong> AcneScan tidak bertanggung jawab atas kerusakan yang timbul dari penggunaan platform.</p>
-        <p><strong>Cookies:</strong> Kami menggunakan cookies untuk meningkatkan pengalaman pengguna.</p>
-
-        <h5>Privacy Policy:</h5>
-        <p><strong>Data Usage:</strong> Data yang dikumpulkan hanya digunakan untuk meningkatkan akurasi algoritma dan memberikan rekomendasi perawatan kulit yang dipersonalisasi.</p>
-        <p><strong>Data Sharing:</strong> Kami tidak akan menjual atau membagikan data Anda kepada pihak ketiga tanpa persetujuan Anda.</p>
-        
-        <!-- Checkbox untuk menyetujui TNC -->
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="acceptTNC">
-          <label class="form-check-label" for="acceptTNC">
-            Saya setuju dengan Terms of Service dan Privacy Policy.
-          </label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-        <a href="/terms-accepted" id="acceptBtn" class="btn btn-primary disabled" role="button" aria-disabled="true">Setuju dan Lanjutkan</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
   </main>
 
 <footer id="footer" class="footer light-background">
@@ -533,40 +496,7 @@
 
 <!-- Main JS File -->
 <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Elemen untuk menerima persetujuan TNC
-    var acceptCheckbox = document.getElementById('acceptTNC');
-    var acceptBtn = document.getElementById('acceptBtn');
-    
-    // Menyeting tombol ketika checkbox dicentang
-    acceptCheckbox.addEventListener('change', function() {
-      if (acceptCheckbox.checked) {
-        acceptBtn.classList.remove('disabled');
-        acceptBtn.setAttribute('aria-disabled', 'false');
-      } else {
-        acceptBtn.classList.add('disabled');
-        acceptBtn.setAttribute('aria-disabled', 'true');
-      }
-    });
 
-    // Menampilkan modal saat tombol "Klasifikasi Sekarang" dengan "more-btn" diklik
-    var classifyBtn = document.getElementById('classifyBtn');
-    var classifyBtn2 = document.getElementById('classifyBtn2');
-
-    classifyBtn.addEventListener('click', function(event) {
-      event.preventDefault(); // Mencegah pengalihan langsung
-      var modal = new bootstrap.Modal(document.getElementById('termsModal'));
-      modal.show();
-    });
-
-    classifyBtn2.addEventListener('click', function(event) {
-      event.preventDefault(); // Mencegah pengalihan langsung
-      var modal = new bootstrap.Modal(document.getElementById('termsModal'));
-      modal.show();
-    });
-  });
-</script>
 
 
 

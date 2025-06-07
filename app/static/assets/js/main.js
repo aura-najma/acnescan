@@ -183,3 +183,75 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+function showUpload() {
+  document.getElementById('upload-section').style.display = 'block';
+  document.getElementById('camera-section').style.display = 'none';
+}
+
+function showCamera() {
+  document.getElementById('upload-section').style.display = 'none';
+  document.getElementById('camera-section').style.display = 'block';
+  startCamera();
+}
+
+function startCamera() {
+  const video = document.getElementById('camera');
+  
+  // Check if the video element exists and is visible
+  if (!video) {
+    console.error('Video element not found!');
+    return;
+  }
+
+  // Ensure the video element is visible when camera is activated
+  video.style.display = 'block';
+  
+  // Access the camera stream
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+      video.srcObject = stream;  // Bind the stream to the video element
+      video.play();  // Start the video playback immediately
+    })
+    .catch(err => {
+      console.error("Gagal mengakses kamera: ", err);
+      alert("Gagal mengakses kamera. Pastikan kamera diaktifkan dan izinkan akses.");
+    });
+}
+
+function takePhoto() {
+  const video = document.getElementById('camera');
+  const canvas = document.getElementById('canvas');
+  const input = document.getElementById('imageInput');
+  const preview = document.getElementById('preview-photo');
+
+  const ctx = canvas.getContext('2d');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  const dataURL = canvas.toDataURL('image/jpeg');
+  console.log("Captured Image Data URL: ", dataURL);
+
+  // Set the base64 data as a hidden input value before submitting the form
+  document.getElementById('imageDataInput').value = dataURL;
+
+  // Display preview
+  preview.src = dataURL;
+  preview.style.display = 'block';
+  video.style.display = 'none';
+}
+
+// Ensure the hidden input exists to store the image data
+document.getElementById('camera-section').innerHTML += `
+  <input type="hidden" name="image" id="imageDataInput" />
+`;
+
+function retakePhoto() {
+  const video = document.getElementById('camera');
+  const preview = document.getElementById('preview-photo');
+  
+  preview.style.display = 'none';  // Hide the preview
+  video.style.display = 'block';   // Show the video element
+  startCamera();  // Restart the camera stream
+}

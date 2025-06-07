@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Create Account - AcneScan</title>
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header sticky-top">
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:acnescan@gmail.com">acnescan@gmail.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+628XXXXXXXX</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="https://twitter.com/acnescan" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://facebook.com/acnescan" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://instagram.com/acnescan" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://linkedin.com/company/acnescan" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="/" class="logo d-flex align-items-center me-auto">
+          <h1 class="sitename">AcneScan</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home<br></a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="classify">Classify</a></li>
+            <li><a href="#departments">Feedback</a></li>
+            <li><a href="#doctors">Articles</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="cta-btn d-none d-sm-block" href="">Klasifikasi Sekarang</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Sign Up Section -->
+    <section id="sign-up" class="sign-up section">
+      <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow-sm border-0 rounded-4 w-100" style="max-width: 450px;">
+          <div class="card-body">
+            <h3 class="text-center mb-4">Create Account</h3>
+            <form action="{{ url_for('sign_up') }}" method="post">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="first_name" class="form-label">First name</label>
+                  <input class="form-control" type="text" id="first_name" name="first_name" placeholder="First name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="last_name" class="form-label">Last name</label>
+                  <input class="form-control" type="text" id="last_name" name="last_name" placeholder="Last name" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" required>
+              </div>
+              <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirm Password</label>
+                <input class="form-control" type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+              </div>
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="terms_conditions" name="terms_conditions" required>
+                <label class="form-check-label" for="terms_conditions">
+                  I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a> and <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Create Account</button>
+            </form>
+            <div class="text-center mt-3">
+              <span>Already have an account?</span>
+              <a href="{{ url_for('sign_in') }}" class="ms-2">Sign In</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Terms of Service Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Terms of Service</h5>
+          <p>By using AcneScan's services, you agree to the following terms:</p>
+          <ul>
+            <li><strong>Data Collection:</strong> The data you upload, including images of your skin, is used to improve AcneScan's machine learning algorithms and service offerings.</li>
+            <li><strong>Acceptable Use:</strong> You agree not to upload illegal, harmful, or inappropriate content while using AcneScan's platform.</li>
+            <li><strong>Intellectual Property:</strong> All rights to the services, including but not limited to content, logos, and software, are owned by AcneScan.</li>
+            <li><strong>Privacy:</strong> Your data will be handled in accordance with AcneScan's privacy policy. We will not share your personal data without your consent.</li>
+            <li><strong>Limitations of Liability:</strong> AcneScan is not responsible for any direct, indirect, or consequential damages resulting from the use of the platform.</li>
+          </ul>
+          <p>For more information, visit our <a href="#">full Terms of Service</a>.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Privacy Policy</h5>
+          <p>At AcneScan, we value your privacy. Below are the key points of our privacy policy:</p>
+          <ul>
+            <li><strong>Data Collection:</strong> We collect images and personal data you provide through the platform to personalize your experience and improve our services.</li>
+            <li><strong>Data Usage:</strong> The data collected is used exclusively to improve the accuracy of our acne classification algorithms and to provide you with personalized skin health recommendations.</li>
+            <li><strong>Data Sharing:</strong> We will not sell, share, or lease your data to third parties, except when required by law.</li>
+            <li><strong>Cookies:</strong> We may use cookies to enhance your user experience. You can opt-out of cookies through your browser settings.</li>
+            <li><strong>Security:</strong> AcneScan uses industry-standard security measures to protect your data from unauthorized access and breaches.</li>
+          </ul>
+          <p>For more information, visit our <a href="#">full Privacy Policy</a>.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+
+</html>
