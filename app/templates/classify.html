@@ -32,7 +32,7 @@
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">acnescan@gmai.com</a></i>
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@acnescan.com</a></i>
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+628XXXXXXXX</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
@@ -54,8 +54,8 @@
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('home') }}#about">About</a></li>
             <li><a href="{{ url_for('classify') }}" class="active">Classify</a></li>
-            <li><a href="{{ url_for('home') }}#departments">Feedback</a></li>
-            <li><a href="{{ url_for('home') }}#doctors">Articles</a></li>
+            <li><a href="{{ url_for('home') }}#feedback">Feedback</a></li>
+            <li><a href="{{ url_for('home') }}#articles">Articles</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -71,11 +71,10 @@
           <p>Gunakan fitur ini untuk mengetahui tingkat keparahan jerawat Anda berdasarkan Skala IGA.</p>
         </div>
 
-        <!-- Buttons to select upload or camera -->
-        <div class="text-center mb-4">
-          <button class="btn btn-outline-primary me-2" onclick="showUpload()">Upload Gambar</button>
-          <button class="btn btn-outline-success" onclick="showCamera()">Gunakan Kamera</button>
-        </div>
+      <div class="text-center mb-4 tombol-pilih-mode">
+        <button class="btn-mode btn btn-outline-primary me-2" onclick="showUpload()">Upload Gambar</button>
+        <button class="btn-mode btn btn-outline-success" onclick="showCamera()">Gunakan Kamera</button>
+      </div>
 
         <div class="row justify-content-center align-items-start gy-5">
           <!-- ===== Upload Section ===== -->
@@ -106,12 +105,20 @@
                 <video id="camera" autoplay playsinline width="100%" class="rounded border mb-2"></video>
                 <img id="preview-photo" class="img-fluid rounded border mb-2" style="display: none;" alt="Hasil Foto">
                 <canvas id="canvas" style="display: none;"></canvas>
-                <div class="d-flex justify-content-end gap-2 mb-3">
-                  <button type="button" class="btn btn-outline-primary" onclick="startCamera()">Aktifkan Kamera</button>
-                  <button type="button" class="btn btn-primary" onclick="takePhoto()">Ambil Foto</button>
-                  <button type="button" class="btn btn-warning" onclick="retakePhoto()">Ulangi Foto</button>
+                <div class="d-flex justify-content-between align-items-center mb-3 camera-controls">
+                  <button type="button" class="btn btn-aktifkan-camera flex-shrink-0" onclick="startCamera()">
+                    Aktifkan Kamera
+                  </button>
+                  <button type="button" class="btn btn-ambil-foto flex-grow-1 mx-2" onclick="takePhoto()">
+                    Ambil Foto
+                  </button>
+                  <button type="button" class="btn btn-ulangi-foto flex-shrink-0" onclick="retakePhoto()">
+                    Ulangi Foto
+                  </button>
                 </div>
-                <button type="submit" class="btn btn-success w-100">Upload Gambar dari Kamera</button>
+                <button type="submit" class="btn btn-upload-camera w-100">
+                  Upload Gambar dari Kamera
+                </button>
               </form>
             </div>
           </div>

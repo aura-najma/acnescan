@@ -1272,17 +1272,17 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Departments Section
+# feedback Section
 --------------------------------------------------------------*/
-.departments {
+.feedback {
   overflow: hidden;
 }
 
-.departments .nav-tabs {
+.feedback .nav-tabs {
   border: 0;
 }
 
-.departments .nav-link {
+.feedback .nav-link {
   border: 0;
   padding: 12px 15px 12px 0;
   transition: 0.3s;
@@ -1293,50 +1293,50 @@ section,
   font-size: 15px;
 }
 
-.departments .nav-link:hover {
+.feedback .nav-link:hover {
   color: var(--accent-color);
 }
 
-.departments .nav-link.active {
+.feedback .nav-link.active {
   color: var(--accent-color);
   border-color: var(--accent-color);
   background-color: var(--background-color);
 }
 
-.departments .tab-pane.active {
+.feedback .tab-pane.active {
   animation: fadeIn 0.5s ease-out;
 }
 
-.departments .details h3 {
+.feedback .details h3 {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-.departments .details p {
+.feedback .details p {
   color: color-mix(in srgb, var(--default-color), transparent 20%);
 }
 
-.departments .details p:last-child {
+.feedback .details p:last-child {
   margin-bottom: 0;
 }
 
 @media (max-width: 992px) {
-  .departments .nav-link {
+  .feedback .nav-link {
     border: 0;
     padding: 15px;
   }
 
-  .departments .nav-link.active {
+  .feedback .nav-link.active {
     color: var(--accent-color);
     background: var(--accent-color);
   }
 }
 
 /*--------------------------------------------------------------
-# Doctors Section
+# articles Section
 --------------------------------------------------------------*/
-.doctors .team-member {
+.articles .team-member {
   background-color: var(--surface-color);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -1347,46 +1347,46 @@ section,
 }
 
 @media (max-width: 468px) {
-  .doctors .team-member {
+  .articles .team-member {
     flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
   }
 }
 
-.doctors .team-member .pic {
+.articles .team-member .pic {
   overflow: hidden;
   width: 150px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
-.doctors .team-member .pic img {
+.articles .team-member .pic img {
   transition: ease-in-out 0.3s;
 }
 
-.doctors .team-member:hover {
+.articles .team-member:hover {
   transform: translateY(-10px);
 }
 
-.doctors .team-member .member-info {
+.articles .team-member .member-info {
   padding-left: 30px;
 }
 
 @media (max-width: 468px) {
-  .doctors .team-member .member-info {
+  .articles .team-member .member-info {
     padding: 30px 0 0 0;
     text-align: center;
   }
 }
 
-.doctors .team-member h4 {
+.articles .team-member h4 {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
 }
 
-.doctors .team-member span {
+.articles .team-member span {
   display: block;
   font-size: 15px;
   padding-bottom: 10px;
@@ -1394,7 +1394,7 @@ section,
   font-weight: 500;
 }
 
-.doctors .team-member span::after {
+.articles .team-member span::after {
   content: "";
   position: absolute;
   display: block;
@@ -1406,17 +1406,17 @@ section,
 }
 
 @media (max-width: 468px) {
-  .doctors .team-member span::after {
+  .articles .team-member span::after {
     left: calc(50% - 25px);
   }
 }
 
-.doctors .team-member p {
+.articles .team-member p {
   margin: 10px 0 0 0;
   font-size: 14px;
 }
 
-.doctors .team-member .social {
+.articles .team-member .social {
   margin-top: 12px;
   display: flex;
   align-items: center;
@@ -1425,12 +1425,12 @@ section,
 }
 
 @media (max-width: 468px) {
-  .doctors .team-member .social {
+  .articles .team-member .social {
     justify-content: center;
   }
 }
 
-.doctors .team-member .social a {
+.articles .team-member .social a {
   background: color-mix(in srgb, var(--default-color), transparent 94%);
   transition: ease-in-out 0.3s;
   display: flex;
@@ -1441,21 +1441,21 @@ section,
   height: 36px;
 }
 
-.doctors .team-member .social a i {
+.articles .team-member .social a i {
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   font-size: 16px;
   margin: 0 2px;
 }
 
-.doctors .team-member .social a:hover {
+.articles .team-member .social a:hover {
   background: var(--accent-color);
 }
 
-.doctors .team-member .social a:hover i {
+.articles .team-member .social a:hover i {
   color: var(--contrast-color);
 }
 
-.doctors .team-member .social a+a {
+.articles .team-member .social a+a {
   margin-left: 8px;
 }
 
@@ -1782,79 +1782,135 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Sign up Section
+# Classify Section
 --------------------------------------------------------------*/
-/* Form Container */
-.sign-up .card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 40px;
+/* === Tombol Pilih Mode (Upload / Kamera) === */
+.tombol-pilih-mode {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-/* Form Fields */
-.form-control {
-  height: 45px;
-  padding: 0 15px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+.tombol-pilih-mode .btn-mode {
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  border: 2px solid var(--accent-color);
+  background-color: transparent;
+  color: var(--accent-color);
+  transition: all 0.3s ease;
 }
 
-.form-control:focus {
-  border-color: #1977cc;
-  box-shadow: 0 0 5px rgba(25, 119, 204, 0.4);
+.tombol-pilih-mode .btn-mode:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  transform: scale(1.05);
 }
 
-/* Button Styling */
-button.btn-primary {
-  background-color: #1977cc;
-  color: white;
-  padding: 12px 30px;
+/* Responsive behavior */
+@media (max-width: 576px) {
+  .tombol-pilih-mode {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tombol-pilih-mode .btn-mode {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+/* Styling umum untuk semua tombol kamera */
+.camera-controls .btn {
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 8px; /* Lebih soft, tidak terlalu membulat */
+  white-space: nowrap;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  width: 100%;
-  transition: background-color 0.3s ease;
 }
 
-button.btn-primary:hover {
-  background-color: #165fa1;
-}
-
-/* Checkbox */
-.form-check-label {
-  font-size: 14px;
-}
-
-.text-center a {
-  font-size: 14px;
+/* Aktifkan Kamera dan Ulangi Foto - Warna Teks: #1977cc, Background putih */
+.btn-aktifkan-camera, .btn-ulangi-foto {
   color: #1977cc;
-  text-decoration: none;
+  background-color: #ffffff;
 }
 
-.text-center a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-footer {
+.btn-aktifkan-camera:hover, .btn-ulangi-foto:hover {
+  color: white;
   background-color: #1977cc;
-  padding: 15px;
+}
+
+/* Ambil Foto - Warna Teks: Putih, Background #1977cc */
+.btn-ambil-foto {
   color: white;
-  text-align: center;
+  background-color: #1977cc;
+}
+
+.btn-ambil-foto:hover {
+  color: #1977cc;
+  background-color: white;
+  border: 1px solid #1977cc;
+}
+
+/* Upload Gambar dari Kamera - Warna Teks Putih, Background #444444 */
+.btn-upload-camera {
+  background-color: #444444;
+  color: white;
   border-radius: 8px;
-  margin-top: 20px;
+  font-weight: 600;
+  padding: 0.65rem;
+  font-size: 1rem;
 }
 
-footer a {
-  color: white;
-  text-decoration: none;
+.btn-upload-camera:hover {
+  background-color: white;
+  color: #444444;
+  border: 1px solid #444444;
 }
 
-footer a:hover {
-  text-decoration: underline;
+
+/*--------------------------------------------------------------
+# Result Section
+--------------------------------------------------------------*/    
+
+.btn-outline-primary {
+  background-color: #1977cc;  /* Accent color */
+  color: white;  /* White text */
+  border: 2px solid #1977cc;  /* Border dengan accent color */
 }
+
+.btn-outline-primary:hover {
+  background-color: white;  /* Ubah background menjadi putih saat hover */
+  color: #1977cc;  /* Ganti warna teks ke accent color saat hover */
+}
+
+/* Success Alert */
+.alert-success {
+  background-color: rgba(25, 119, 204, 0.1);  /* Accent color but with transparency */
+  color: rgba(25, 119, 204, 1);  /* Solid accent color for text */
+  border-color: rgba(25, 119, 204, 0.5);  /* Accent color with transparency */
+}
+
+/* Info Alert */
+.alert-info {
+  background-color: rgba(25, 119, 204, 0.1);  /* Accent color with transparency */
+  color: rgba(25, 119, 204, 1);  /* Solid accent color for text */
+  border-color: rgba(25, 119, 204, 0.5);  /* Accent color with transparency */
+}
+
+/* Warning Alert */
+.alert-warning {
+  background-color: rgba(44, 73, 100, 0.1);  /* Heading color with transparency */
+  color: rgba(44, 73, 100, 1);  /* Solid heading color for text */
+  border-color: rgba(44, 73, 100, 0.5);  /* Heading color with transparency */
+}
+
+/* Danger Alert */
+.alert-danger {
+  background-color: rgba(68, 68, 68, 0.1);  /* Default color with transparency */
+  color: rgba(68, 68, 68, 1);  /* Solid default color for text */
+  border-color: rgba(68, 68, 68, 0.5);  /* Default color with transparency */
+}
+

@@ -55,8 +55,8 @@
             <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
             <li><a href="{{ url_for('home') }}#about">About</a></li>
             <li><a href="{{ url_for('classify') }}">Classify</a></li>
-            <li><a href="{{ url_for('home') }}#departments">Feedback</a></li>
-            <li><a href="{{ url_for('home') }}#doctors">Articles</a></li>
+            <li><a href="{{ url_for('home') }}#feedback">Feedback</a></li>
+            <li><a href="{{ url_for('home') }}#articles">Articles</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -73,24 +73,23 @@
           <p>Berikut adalah hasil analisis dari gambar wajah yang Anda unggah.</p>
         </div>
 
-        <div class="row justify-content-center align-items-start">
-          <!-- Kolom kiri: gambar -->
+        <div class="row justify-content-center">
+          <!-- Kolom Kiri: Gambar -->
           {% if image %}
           <div class="col-lg-6 mb-4 text-center">
-            <img src="{{ url_for('static', filename='uploads/' + image) }}"
-                alt="Uploaded Image"
-                class="img-fluid rounded border shadow"
+            <img src="{{ url_for('static', filename='uploads/' + image) }}" 
+                alt="Uploaded Image" 
+                class="img-fluid rounded shadow mb-3" 
                 style="max-height: 400px;">
           </div>
           {% endif %}
 
-          <!-- Kolom kanan: hasil klasifikasi -->
+          <!-- Kolom Kanan: Hasil Klasifikasi -->
           <div class="col-lg-6">
             <div class="card p-4 shadow rounded-4 text-center">
               <h4 class="mb-3 text-secondary">Tingkat Keparahan Jerawat</h4>
 
-
-              <!-- Semua blok hasil disembunyikan dulu -->
+              <!-- Hasil IGA0 -->
               <div class="result-block" id="iga-0" style="display: none;">
                 <div class="display-5 fw-bold text-igascan mb-2">IGA 0 – Clear</div>
                 <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
@@ -102,6 +101,7 @@
                 <div class="alert alert-success">Tidak diperlukan pengobatan khusus.</div>
               </div>
 
+              <!-- Hasil IGA1 -->
               <div class="result-block" id="iga-1" style="display: none;">
                 <div class="display-5 fw-bold text-igascan mb-2">IGA 1 – Almost Clear</div>
                 <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
@@ -112,6 +112,7 @@
                 <div class="alert alert-success">Tidak perlu konsultasi dokter kecuali gejala memburuk.</div>
               </div>
 
+              <!-- Hasil IGA2 -->
               <div class="result-block" id="iga-2" style="display: none;">
                 <div class="display-5 fw-bold text-igascan mb-2">IGA 2 – Mild</div>
                 <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
@@ -123,6 +124,7 @@
                 <div class="alert alert-info">Pantau kondisi. Konsultasi bila tidak membaik dalam 4 minggu.</div>
               </div>
 
+              <!-- Hasil IGA3 -->
               <div class="result-block" id="iga-3" style="display: none;">
                 <div class="display-5 fw-bold text-igascan mb-2">IGA 3 – Moderate</div>
                 <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
@@ -134,6 +136,7 @@
                 <div class="alert alert-warning">Segera konsultasi jika jerawat nyeri atau meluas.</div>
               </div>
 
+              <!-- Hasil IGA4 -->
               <div class="result-block" id="iga-4" style="display: none;">
                 <div class="display-5 fw-bold text-igascan mb-2">IGA 4 – Severe</div>
                 <h5 class="fw-semibold mb-2 text-igascan">Saran Perawatan:</h5>
@@ -145,6 +148,7 @@
                 <div class="alert alert-danger">Penanganan profesional sangat dianjurkan.</div>
               </div>
 
+              <!-- Hasil Tidak Terdeteksi -->
               <div class="result-block" id="tidak-terdeteksi" style="display: none;">
                 <div class="display-5 fw-bold text-danger mb-2">Tidak Terdeteksi</div>
                 <h5 class="fw-semibold mb-2 text-danger">Model tidak mendeteksi jerawat</h5>
