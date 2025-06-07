@@ -72,13 +72,23 @@
           <h2>Hasil Klasifikasi Jerawat Anda</h2>
           <p>Berikut adalah hasil analisis dari gambar wajah yang Anda unggah.</p>
         </div>
-        <div class="mb-3">
-          <img id="uploadedImage" src="#" alt="Uploaded Image" class="img-fluid rounded mb-3" style="display: none;">
-        </div>
-        <div class="row justify-content-center">
+
+        <div class="row justify-content-center align-items-start">
+          <!-- Kolom kiri: gambar -->
+          {% if image %}
+          <div class="col-lg-6 mb-4 text-center">
+            <img src="{{ url_for('static', filename='uploads/' + image) }}"
+                alt="Uploaded Image"
+                class="img-fluid rounded border shadow"
+                style="max-height: 400px;">
+          </div>
+          {% endif %}
+
+          <!-- Kolom kanan: hasil klasifikasi -->
           <div class="col-lg-6">
             <div class="card p-4 shadow rounded-4 text-center">
               <h4 class="mb-3 text-secondary">Tingkat Keparahan Jerawat</h4>
+
 
               <!-- Semua blok hasil disembunyikan dulu -->
               <div class="result-block" id="iga-0" style="display: none;">

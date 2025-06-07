@@ -108,7 +108,6 @@ def classify():
         # Step 1: Classify the image first
         predicted_label = predict_image(filepath)
 
-        # 6. Jika klasifikasi adalah IGA0, lakukan deteksi wajah
         # Step 2: If the label is "IGA0", check for face detection
         if predicted_label in ["iga0", "iga1", "iga2", "iga3", "iga4"]:
             app.logger.debug(f"[DEBUG] {predicted_label.upper()} detected, checking for face...")
