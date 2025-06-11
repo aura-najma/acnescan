@@ -94,8 +94,6 @@ def classify():
             filename = secure_filename(file.filename)
             filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
-            app.logger.debug(f"[DEBUG] Uploaded file size (bytes): {len(file.read())}")
-            file.seek(0)
         else:
             # Handle image from camera (base64 data)
             image_data = request.form.get('image')
@@ -105,20 +103,21 @@ def classify():
             else:
                 return "No image data received", 400
 
-        # Step 1: Classify the image first
+        # Step 1: Detect face in the image first
+        if not detect_face(filepath):  # If no face detected, redirect to result
+            return redirect(url_for('result', image=filename, label='tidak-terdeteksi'))
+
+        # Step 2: Classify the image using the YOLO model
         predicted_label = predict_image(filepath)
 
-        # Step 2: If the label is "IGA0", check for face detection
-        if predicted_label in ["iga0", "iga1"]:
-            app.logger.debug(f"[DEBUG] {predicted_label.upper()} detected, checking for face...")
-            if not detect_face(filepath):
-                app.logger.debug("[DEBUG] No face detected.")
-                return redirect(url_for('result', image=filename, label='tidak-terdeteksi'))
-       
-        # Step 3: Redirect to the result page with the predicted label
+        # Step 3: If the label is "IGA0", "IGA1", or "IGA2", proceed to result
+        if predicted_label in ["iga0", "iga1", "iga2"]:
+            app.logger.debug(f"[DEBUG] {predicted_label.upper()} detected.")
+
+        # Step 4: Redirect to the result page with the predicted label and image
         return redirect(url_for('result', image=filename, label=predicted_label))
 
-    return render_template('classify.html')  
+    return render_template('classify.html')
 
 @app.route('/result')
 def result():
