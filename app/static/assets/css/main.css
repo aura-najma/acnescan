@@ -2103,18 +2103,7 @@ section,
   transform: scale(1.05);
 }
 
-/* Responsive behavior */
-@media (max-width: 576px) {
-  .tombol-pilih-mode {
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .tombol-pilih-mode .btn-mode {
-    width: 100%;
-    max-width: 300px;
-  }
-}
 /* Styling umum untuk semua tombol kamera */
 .camera-controls .btn {
   font-weight: 500;
@@ -2165,6 +2154,49 @@ section,
   border: 1px solid #444444;
 }
 
+/* Responsif untuk perangkat kecil (HP / tablet) */
+@media (max-width: 576px) {
+  .camera-controls {
+    display: flex;
+    flex-direction: column; /* Tombol jadi vertikal */
+    gap: 1rem; /* Jarak antar tombol */
+    align-items: center; /* Menyejajarkan tombol di tengah */
+  }
+
+  /* Membatasi lebar tombol agar tidak terlalu besar */
+  .camera-controls .btn {
+    width: 100%;
+    max-width: 350px; /* Atur lebar maksimum tombol */
+  }
+}
+/* Responsif untuk perangkat kecil (HP / tablet) */
+@media (max-width: 576px) {
+  /* Tombol pilih mode */
+  .tombol-pilih-mode {
+    flex-direction: column; /* Menyusun tombol secara vertikal */
+    align-items: center; /* Menyejajarkan tombol di tengah */
+    gap: 1rem; /* Memberikan jarak antar tombol */
+  }
+
+  .tombol-pilih-mode .btn-mode {
+    width: 100%; /* Membuat tombol mengisi 100% lebar container */
+    max-width: 300px; /* Lebar maksimum tombol */
+  }
+
+  /* Tombol kamera */
+  .camera-controls {
+    display: flex;
+    flex-direction: column; /* Menyusun tombol secara vertikal */
+    gap: 1rem; /* Memberikan jarak antar tombol */
+    align-items: center; /* Menyejajarkan tombol di tengah */
+  }
+
+  /* Membatasi lebar tombol kamera agar tidak terlalu besar */
+  .camera-controls .btn {
+    width: 100%;
+    max-width: 350px; /* Lebar maksimum tombol kamera */
+  }
+}
 
 /*--------------------------------------------------------------
 # Result Section

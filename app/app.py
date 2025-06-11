@@ -110,10 +110,6 @@ def classify():
         # Step 2: Classify the image using the YOLO model
         predicted_label = predict_image(filepath)
 
-        # Step 3: If the label is "IGA0", "IGA1", or "IGA2", proceed to result
-        if predicted_label in ["iga0", "iga1", "iga2"]:
-            app.logger.debug(f"[DEBUG] {predicted_label.upper()} detected.")
-
         # Step 4: Redirect to the result page with the predicted label and image
         return redirect(url_for('result', image=filename, label=predicted_label))
 
