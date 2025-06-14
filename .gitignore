@@ -5,5 +5,5 @@ __pycache__/
 *.log
 dbdata/
 .vscode/
-static/uploads/
-model/*/
+app/static/uploads/
+app/model/*/
