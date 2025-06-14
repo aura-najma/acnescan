@@ -1353,37 +1353,38 @@ section,
   top: calc(50% - 47px);
 }
 
-.table-rounded {
-  border-radius: 12px;
+/* Tabel utama */
+.table {
+  border-radius: 8px; /* Menambahkan sudut membulat pada tabel */
+  box-shadow: 4px 4px 8px rgba(0.1, 0.1, 0.1, 0.1); /* Menambahkan bayangan pada tabel */
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
-.table-bordered {
-  border: 2px solid #2c4964;
-}
 
-.table-bordered th,
-.table-bordered td {
-  border: 1.5px solid #2c4964; /* Garis tegas */
-}
 
+/* Header tabel */
 .table th {
-  background-color: #2c4964;
+  background-color: #1977cc;
   color: white;
   font-weight: 600;
   font-size: 16px;
+  text-align: center;
 }
 
+/* Sel tabel */
 .table td {
   font-size: 15px;
   padding: 12px 14px;
-  background-color: #ffffff;
+  background-color: #f1f7fc;
 }
 
+/* Baris genap tabel dengan warna latar belakang */
 .table tbody tr:nth-child(even) {
-  background-color: #f5f9ff;
+  background-color: #f1f7fc;
 }
+
+
+
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
@@ -1852,6 +1853,98 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Team Section
+--------------------------------------------------------------*/
+/* Section Title */
+/* Section Title */
+#team .section-title h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#team .section-title p {
+    font-size: 16px;
+    text-align: center;
+    color: #777;
+}
+
+/* Container for team members */
+.team-container {
+    display: flex;
+    justify-content: space-between; /* Membuat elemen berjejer rata kiri dan kanan */
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Styling for each team member card */
+.team-member {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 18%; /* Menentukan lebar kartu agar 5 kartu muat dalam 1 baris */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px); /* Efek hover untuk kartu */
+}
+
+/* Image styling */
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Membuat gambar bulat */
+    margin-bottom: 15px;
+}
+
+/* Team member name and title */
+.team-member h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Social media icons styling */
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    font-size: 20px;
+    color: #333;
+    margin: 0 8px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #1977cc; /* Menambahkan efek warna saat hover pada ikon */
+}
+
+/* Bio text styling */
+.bio {
+    font-size: 12px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Styling for the section */
+#team {
+    padding: 40px 0;
+}
+
+/*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
 .testimonials .info h3 {
@@ -2215,29 +2308,28 @@ section,
 
 /* Success Alert */
 .alert-success {
-  background-color: rgba(25, 119, 204, 0.1);  /* Accent color but with transparency */
-  color: rgba(25, 119, 204, 1);  /* Solid accent color for text */
-  border-color: rgba(25, 119, 204, 0.5);  /* Accent color with transparency */
+  background-color: rgba(25, 119, 204, 0.1);  /* Warna #1977cc dengan transparansi */
+  color: rgba(25, 119, 204, 1);  /* Warna solid #1977cc untuk teks */
+  border-color: rgba(25, 119, 204, 0.5);  /* Warna #1977cc dengan transparansi untuk border */
 }
 
 /* Info Alert */
 .alert-info {
-  background-color: rgba(25, 119, 204, 0.1);  /* Accent color with transparency */
-  color: rgba(25, 119, 204, 1);  /* Solid accent color for text */
-  border-color: rgba(25, 119, 204, 0.5);  /* Accent color with transparency */
+  background-color: rgba(25, 119, 204, 0.3);  /* Warna lebih gelap dari #1977cc dengan transparansi */
+  color: rgba(25, 119, 204, 1);  /* Warna solid #1977cc untuk teks */
+  border-color: rgba(25, 119, 204, 0.5);  /* Warna lebih gelap dari #1977cc dengan transparansi untuk border */
 }
 
-/* Warning Alert */
-.alert-warning {
-  background-color: rgba(44, 73, 100, 0.1);  /* Heading color with transparency */
-  color: rgba(44, 73, 100, 1);  /* Solid heading color for text */
-  border-color: rgba(44, 73, 100, 0.5);  /* Heading color with transparency */
-}
-
-/* Danger Alert */
 .alert-danger {
-  background-color: rgba(68, 68, 68, 0.1);  /* Default color with transparency */
-  color: rgba(68, 68, 68, 1);  /* Solid default color for text */
-  border-color: rgba(68, 68, 68, 0.5);  /* Default color with transparency */
+  background-color: rgba(255, 69, 58, 0.1);  /* Warna merah dengan transparansi */
+  color: rgba(255, 69, 58, 1);  /* Warna solid merah untuk teks */
+  border-color: rgba(255, 69, 58, 0.5);  /* Warna merah dengan transparansi untuk border */
 }
 
+
+.alert-warning {
+  background-color: rgba(44, 73, 100, 0.1);  /* Warna #2c4964 dengan transparansi */
+  color: rgba(44, 73, 100, 1);  /* Warna solid #2c4964 untuk teks */
+  border-color: rgba(44, 73, 100, 0.5);  /* Warna #2c4964 dengan transparansi untuk border */
+}
+/*--------------------------------------------------------------
