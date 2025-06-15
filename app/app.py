@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, redirect, url_for, current_ap
 from werkzeug.utils import secure_filename
 import os
 from ultralytics import YOLO
-import cv2
 import base64
 from io import BytesIO
 from PIL import Image
@@ -56,33 +55,16 @@ def predict_image(image_path):
             return predicted_label
         else:
             app.logger.debug("[DEBUG] No predictions detected.")
-            return "tidak terdeteksi"
+            return "non wajah"
     except Exception as e:
         app.logger.error(f"[ERROR] Prediction failed: {e}")
-        return "tidak terdeteksi"
-
-def detect_face(image_path):
-    try:
-        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-        img = cv2.imread(image_path)
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-        # Detect faces in the image
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
-
-        if len(faces) == 0:
-            app.logger.debug("[DEBUG] No face detected in the image.")
-            return False  # No face detected
-        app.logger.debug(f"[DEBUG] Faces detected: {len(faces)}")
-        return True  # Face detected
-    except Exception as e:
-        app.logger.error(f"[ERROR] Face detection failed: {e}")
-        return False
+        return "non wajah"
 
 # Routes
 @app.route('/')
 def home():
     return render_template('index.html')
+
 @app.route('/classify', methods=['GET', 'POST'])
 def classify():
     filename = None  # Initialize filename to avoid UnboundLocalError
@@ -103,17 +85,15 @@ def classify():
             else:
                 return "No image data received", 400
 
-        # Step 1: Detect face in the image first
-        if not detect_face(filepath):  # If no face detected, redirect to result
-            return redirect(url_for('result', image=filename, label='tidak-terdeteksi'))
 
-        # Step 2: Classify the image using the YOLO model
+        # Step 1: Classify the image using the YOLO model
         predicted_label = predict_image(filepath)
 
-        # Step 4: Redirect to the result page with the predicted label and image
+        # Step 2: Redirect to the result page with the predicted label and image
         return redirect(url_for('result', image=filename, label=predicted_label))
 
     return render_template('classify.html')
+
 
 @app.route('/result')
 def result():

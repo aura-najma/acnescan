@@ -146,7 +146,7 @@
               </div>
 
               <!-- Hasil Tidak Terdeteksi -->
-              <div class="result-block" id="tidak-terdeteksi" style="display: none;">
+              <div class="result-block" id="non wajah" style="display: none;">
                 <div class="display-5 fw-bold text-danger mb-2">Tidak Terdeteksi</div>
                 <h5 class="fw-semibold mb-2 text-danger">Model tidak mendeteksi jerawat</h5>
                 <p>Citra wajah tidak dikenali. Pastikan kualitas gambar baik, wajah terlihat jelas dan tidak buram atau terlalu gelap.</p>
@@ -161,12 +161,18 @@
     </section>
   </main>
 
-  <!-- Script dinamis berdasarkan label -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Ambil nilai dari variabel label, dan ubah menjadi lowercase
       const label = "{{ label|lower }}";
-      const id = label === 'tidak terdeteksi' ? 'tidak-terdeteksi' : label.replace('iga', 'iga-');
+      
+      // Tentukan ID berdasarkan nilai label
+      const id = label.replace('iga', 'iga-'); // Ganti 'iga' dengan 'iga-' untuk label yang sesuai
+      
+      // Cari elemen dengan ID yang sesuai
       const el = document.getElementById(id);
+      
+      // Jika elemen ditemukan, ubah gaya display-nya menjadi 'block' (tampilkan elemen)
       if (el) el.style.display = 'block';
     });
   </script>
